@@ -1,0 +1,13 @@
+Alice Smith
+
+Software Engineer
+
+Skills:
+Python
+SQL
+Docker
+AWS
+Git
+
+Experience:
+5 years

@@ -1,0 +1,12 @@
+Charlie Brown
+
+Data Scientist
+
+Skills:
+Python
+TensorFlow
+Pandas
+SQL
+
+Experience:
+4 years

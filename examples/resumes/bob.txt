@@ -1,0 +1,12 @@
+Bob Johnson
+
+Backend Developer
+
+Skills:
+Java
+Spring Boot
+Docker
+MySQL
+
+Experience:
+3 years
