@@ -1,0 +1,12 @@
+John Doe
+
+Software Engineer
+
+Skills:
+Python
+SQL
+Docker
+AWS
+
+Experience:
+5 years
