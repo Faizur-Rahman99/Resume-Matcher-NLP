@@ -1,7 +1,5 @@
 import streamlit as st
 from services.api import APIClient
-from components.job_upload import render_job_upload
-from components.resume_upload import render_resume_upload
 from components.candidate_table import render_candidate_table
 from components.candidate_card import render_candidate_cards
 from components.header import render_header

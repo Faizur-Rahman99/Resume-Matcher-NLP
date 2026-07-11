@@ -1,78 +1,32 @@
-import streamlit as st
+from services.api import APIClient
 
 
-def render_resume_preview(resume_data):
+def analyze_candidates(job_file, resume_files):
+    """
+    Upload the job description and resumes to the backend,
+    then request a batch ranking.
+    """
 
-    if not resume_data:
-        return
+    client = APIClient()
 
-    st.success("Resume processed successfully!")
+    # Process job description
+    job_data = client.upload_job(job_file)
 
-    # ---------- Personal Information ----------
+    # Process resumes
+    resume_data = []
 
-    st.subheader("👤 Candidate Information")
+    for resume_file in resume_files:
 
-    st.write(f"**Name:** {resume_data.get('name') or 'Not found'}")
-    st.write(f"**Email:** {resume_data.get('email') or 'Not found'}")
-    st.write(f"**Phone:** {resume_data.get('phone') or 'Not found'}")
+        resume = client.upload_resume(resume_file)
 
-    st.divider()
+        resume["filename"] = resume_file.name
 
-    # ---------- Skills & Experience ----------
+        resume_data.append(resume)
 
-    col1, col2 = st.columns(2)
+    # Get ranked candidates
+    ranking = client.batch_match(
+        job=job_data,
+        resumes=resume_data,
+    )
 
-    with col1:
-
-        st.subheader("💻 Extracted Skills")
-
-        skills = resume_data.get("skills", [])
-
-        if skills:
-            for skill in skills:
-                st.success(f"✅ {skill}")
-        else:
-            st.info("No skills found.")
-
-    with col2:
-
-        st.subheader("📅 Experience")
-
-        st.metric(
-            "Years",
-            resume_data.get("experience_years", 0),
-        )
-
-    st.divider()
-
-    # ---------- Education ----------
-
-    st.subheader("🎓 Education")
-
-    education = resume_data.get("education", [])
-
-    if education:
-
-        for degree in education:
-            st.write(f"• {degree}")
-
-    else:
-
-        st.info("No education found.")
-
-    st.divider()
-
-    # ---------- Projects ----------
-
-    st.subheader("📂 Projects")
-
-    projects = resume_data.get("projects", [])
-
-    if projects:
-
-        for project in projects:
-            st.write(f"• {project}")
-
-    else:
-
-        st.info("No projects found.")
+    return ranking
