@@ -10,7 +10,7 @@ def test_read_txt():
     assert isinstance(text, str)
     assert "Python" in text
     assert "Docker" in text
-    assert "5 years" in text
+    assert "3 years" in text
 
 
 def test_read_pdf():
@@ -22,7 +22,7 @@ def test_read_pdf():
     assert isinstance(text, str)
     assert "Python" in text
     assert "Docker" in text
-    assert "5 years" in text
+    assert "3 years" in text
 
 
 def test_read_docx():
@@ -34,4 +34,4 @@ def test_read_docx():
     assert isinstance(text, str)
     assert "Python" in text
     assert "Docker" in text
-    assert "5 years" in text
+    assert "3 years" in text

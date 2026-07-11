@@ -26,6 +26,11 @@ def test_similarity_engine():
 
     assert result.skill_score == 0.75
     assert result.experience_score == 0.8
+    assert result.matched_skills == [
+        "Docker",
+        "Python",
+        "SQL",
+    ]
 
     assert 0 <= result.rule_based_score <= 1
     assert 0 <= result.tfidf_score <= 1

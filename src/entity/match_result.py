@@ -9,4 +9,6 @@ class MatchResult:
     semantic_score: float
     skill_score: float
     experience_score: float
+    matched_skills: list[str]
     missing_skills: list[str] = field(default_factory=list)
+    explanation: list[str] = field(default_factory=list)

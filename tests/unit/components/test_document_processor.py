@@ -19,4 +19,4 @@ def test_document_processor(path):
 
     assert "Python" in resume.skills
     assert "Docker" in resume.skills
-    assert resume.experience_years == 5
+    assert resume.experience_years == 3

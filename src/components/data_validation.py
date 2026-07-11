@@ -6,10 +6,18 @@ from src.logger.logging import logger
 
 
 class DataValidation:
+    """
+    Validates required datasets and their schemas.
+    """
+
     def __init__(self, config: DataValidationConfig):
         self.config = config
 
     def validate_file_existence(self) -> bool:
+        """
+        Verify that all required data files are present.
+        """
+
         files = [
             self.config.resume_data_path,
             self.config.job_roles_path,

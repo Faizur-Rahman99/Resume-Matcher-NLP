@@ -1,3 +1,13 @@
 [build-system]
 requires = ["setuptools>=65.0"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "resume-matcher-nlp"
+version = "1.0.0"
+description = "AI-powered Resume Matcher using NLP, Machine Learning, FastAPI, and Streamlit."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Faizur Rahman" }
+]

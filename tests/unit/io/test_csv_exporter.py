@@ -16,8 +16,13 @@ def test_csv_exporter(tmp_path):
                 semantic_score=0.94,
                 skill_score=0.85,
                 experience_score=1.0,
+                matched_skills=[
+                    "Python",
+                    "SQL",
+                    "Docker",
+                ],
                 missing_skills=["AWS"],
-            ),
+            )
         },
         {
             "filename": "resume2.txt",
@@ -28,8 +33,12 @@ def test_csv_exporter(tmp_path):
                 semantic_score=0.82,
                 skill_score=0.75,
                 experience_score=0.90,
+                matched_skills=[
+                    "Python",
+                    "SQL",
+                ],
                 missing_skills=["Docker"],
-            ),
+            )
         },
     ]
 

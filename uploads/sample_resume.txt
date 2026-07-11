@@ -2,6 +2,12 @@ John Doe
 
 Software Engineer
 
+Email:
+john.doe@example.com
+
+Phone:
++8801712345678
+
 Skills:
 Python
 SQL
@@ -9,4 +15,8 @@ Docker
 AWS
 
 Experience:
-5 years
+3 years
+
+Projects:
+AI Resume Matcher
+Customer Churn Prediction

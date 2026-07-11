@@ -5,6 +5,7 @@ from src.matching.experience_matcher import ExperienceMatcher
 from src.matching.skill_matcher import SkillMatcher
 from src.ml.tfidf_similarity import TFIDFSimilarity
 from src.ml.semantic_similarity import SemanticSimilarity
+from src.matching.explanation_engine import ExplanationEngine
 
 from src.config.scoring import (
     EXPERIENCE_WEIGHT,
@@ -21,6 +22,7 @@ class SimilarityEngine:
         self.experience_matcher = ExperienceMatcher()
         self.tfidf = TFIDFSimilarity()
         self.semantic = SemanticSimilarity()
+        self.explanation_engine = ExplanationEngine()
 
     def match(
         self,
@@ -64,16 +66,29 @@ class SimilarityEngine:
             3
         )
 
+        matched_skills = sorted(
+            set(resume.skills) & set(job.skills)
+        )
+
         missing_skills = sorted(
             set(job.skills) - set(resume.skills)
         )
 
-        return MatchResult(
+        result = MatchResult(
             overall_score=overall_score,
             rule_based_score=rule_based_score,
             tfidf_score=tfidf_score,
             semantic_score=semantic_score,
             skill_score=skill_score,
             experience_score=experience_score,
+            matched_skills=matched_skills,
             missing_skills=missing_skills,
         )
+
+        result.explanation = self.explanation_engine.generate(
+            resume,
+            job,
+            result,
+        )
+
+        return result

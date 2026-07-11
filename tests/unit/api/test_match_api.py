@@ -35,6 +35,14 @@ def test_match():
 
     data = response.json()
 
+    assert data["matched_skills"] == [
+        "Docker",
+        "Python",
+        "SQL",
+    ]
+
+    data = response.json()
+
     assert data["skill_score"] == 0.75
     assert data["experience_score"] == 0.8
     assert "AWS" in data["missing_skills"]

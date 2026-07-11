@@ -12,9 +12,8 @@ def test_upload_resume():
         "tests/data/sample_resume.txt",
         "rb",
     ) as file:
-
         response = client.post(
-            "/upload",
+            "/upload/resume",
             files={
                 "file": (
                     "sample_resume.txt",
@@ -30,4 +29,29 @@ def test_upload_resume():
 
     assert "Python" in data["skills"]
     assert "Docker" in data["skills"]
-    assert data["experience_years"] == 5
+    assert data["experience_years"] == 3
+
+def test_upload_job():
+
+    with open(
+        "tests/data/sample_resume.txt",
+        "rb",
+    ) as file:
+
+        response = client.post(
+            "/upload/job",
+            files={
+                "file": (
+                    "sample_resume.txt",
+                    file,
+                    "text/plain",
+                )
+            },
+        )
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert "skills" in data
+    assert "experience_years" in data

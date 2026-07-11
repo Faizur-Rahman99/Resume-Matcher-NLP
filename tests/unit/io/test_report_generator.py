@@ -32,6 +32,11 @@ def test_report_generator():
         semantic_score=0.90,
         skill_score=0.75,
         experience_score=0.80,
+        matched_skills=[
+            "Python",
+            "SQL",
+            "Docker",
+        ],
         missing_skills=["AWS"],
     )
 

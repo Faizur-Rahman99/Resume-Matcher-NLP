@@ -1,17 +1,36 @@
 class SkillMatcher:
+    """
+    Calculates the proportion of required skills present in a resume.
+    """
 
     def match(
         self,
         resume_skills: list[str],
-        required_skills: list[str]
+        required_skills: list[str],
     ) -> float:
+        """
+        Compute a skill match score between 0.0 and 1.0.
+        """
 
         if not required_skills:
             return 0.0
 
-        resume = {skill.lower() for skill in resume_skills}
-        required = {skill.lower() for skill in required_skills}
+        resume_skill_set = {
+            skill.lower()
+            for skill in resume_skills
+        }
 
-        matched = resume & required
+        required_skill_set = {
+            skill.lower()
+            for skill in required_skills
+        }
 
-        return len(matched) / len(required)
+        matched_skills = (
+            resume_skill_set &
+            required_skill_set
+        )
+
+        return (
+            len(matched_skills) /
+            len(required_skill_set)
+        )
