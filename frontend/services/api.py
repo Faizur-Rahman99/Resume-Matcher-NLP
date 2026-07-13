@@ -1,6 +1,6 @@
 import requests
 
-from src.config.settings import API_URL
+from config.settings import API_URL
 
 
 class APIClient:

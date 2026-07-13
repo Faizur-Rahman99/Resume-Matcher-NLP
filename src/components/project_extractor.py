@@ -28,7 +28,7 @@ class ProjectExtractor:
 
         for line in lines:
 
-            lower = line.lower()
+            lower = line.lower().rstrip(":").strip()
 
             if lower in self.HEADERS:
                 inside = True

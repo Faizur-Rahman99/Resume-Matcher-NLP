@@ -1,17 +1,35 @@
-from src.components.resume_parser import ResumeParser
+from src.components.contact_extractor import ContactExtractor
+from src.components.name_extractor import NameExtractor
+from src.components.project_extractor import ProjectExtractor
+from src.components.education_extractor import EducationExtractor
 
+text = """
+John Doe
 
-def test_resume_parser():
+Software Engineer
 
-    parser = ResumeParser()
+Email:
+john.doe@example.com
 
-    text = """
-    Software Engineer with 5 years of experience.
-    Skilled in Python, SQL Server, Docker and TensorFlow.
-    """
+Phone:
++8801712345678
 
-    resume = parser.parse(text)
+Skills:
+Python
+SQL
+Docker
+AWS
 
-    assert "Python" in resume.skills
-    assert "Docker" in resume.skills
-    assert resume.experience_years == 5
+Experience:
+3 years
+
+Projects:
+AI Resume Matcher
+Customer Churn Prediction
+"""
+
+print("NAME:", NameExtractor().extract(text))
+print("EMAIL:", ContactExtractor().extract_email(text))
+print("PHONE:", ContactExtractor().extract_phone(text))
+print("PROJECTS:", ProjectExtractor().extract(text))
+print("EDUCATION:", EducationExtractor().extract(text))

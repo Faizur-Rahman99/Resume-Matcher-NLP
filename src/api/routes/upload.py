@@ -57,14 +57,28 @@ async def upload_resume(
 
         return ResumeData(
             filename=file.filename,
+            name=resume.name,
+            email=resume.email,
+            phone=resume.phone,
+            education=resume.education,
+            projects=resume.projects,
             skills=resume.skills,
             experience_years=resume.experience_years,
         )
 
+
     except Exception as exc:
+
+        import traceback
+
+        traceback.print_exc()
+
         raise HTTPException(
+
             status_code=400,
+
             detail=f"Failed to process resume: {exc}",
+
         )
 
 
@@ -93,8 +107,17 @@ async def upload_job(
             experience_years=job.experience_years,
         )
 
+
     except Exception as exc:
+
+        import traceback
+
+        traceback.print_exc()
+
         raise HTTPException(
+
             status_code=400,
-            detail=f"Failed to process job description: {exc}",
+
+            detail=f"Failed to process job: {exc}",
+
         )
