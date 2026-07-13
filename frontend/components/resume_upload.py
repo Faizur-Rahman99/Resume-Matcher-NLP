@@ -2,19 +2,21 @@ import streamlit as st
 
 
 def render_resume_upload():
+    """
+    Render the resume uploader.
+    """
 
-    st.header("Candidate Resumes")
+    st.subheader("👤 Candidate Resumes")
 
-    st.caption(
-        "Upload one or more candidate resumes."
+    st.markdown(
+        """
+        Upload one or more candidate resumes
+        for automatic ranking.
+        """
     )
 
     return st.file_uploader(
-        "Upload candidate resumes",
-        type=[
-            "pdf",
-            "docx",
-            "txt",
-        ],
+        "Choose one or more resumes",
+        type=["pdf", "docx", "txt"],
         accept_multiple_files=True,
     )

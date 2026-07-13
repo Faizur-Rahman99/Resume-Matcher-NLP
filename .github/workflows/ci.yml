@@ -1,0 +1,56 @@
+name: Resume Matcher CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Verify Python Syntax
+        run: |
+          python -m compileall .
+
+      - name: Run Tests
+        run: |
+          pytest
+
+  docker:
+
+    needs: test
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Backend Docker Image
+        run: |
+          docker build -f Dockerfile.backend -t resume-backend .
+
+      - name: Build Frontend Docker Image
+        run: |
+          docker build -f Dockerfile.frontend -t resume-frontend .

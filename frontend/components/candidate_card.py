@@ -8,28 +8,43 @@ def render_candidate_cards(results):
     for index, candidate in enumerate(results):
 
         if index == 0:
-            st.success("🏆 Best Match Candidate")
+            rank = "🥇"
+            st.success("🏆 Top Ranked Candidate")
+        elif index == 1:
+            rank = "🥈"
+        elif index == 2:
+            rank = "🥉"
+        else:
+            rank = f"#{index + 1}"
+
+        score = candidate.get("overall_score", 0)
+
+        if score >= 0.85:
+            level = "🟢 Excellent Match"
+        elif score >= 0.70:
+            level = "🟡 Good Match"
+        elif score >= 0.50:
+            level = "🟠 Fair Match"
+        else:
+            level = "🔴 Weak Match"
 
         with st.expander(
-            f"{candidate.get('filename', 'Unknown')} — "
-            f"{candidate.get('overall_score', 0):.0%} Match"
+                f"{rank} {candidate.get('filename', 'Unknown')} • "
+                f"{candidate.get('overall_score', 0):.0%} Match • {level}"
         ):
 
             # ---------- Candidate Information ----------
 
             st.subheader("👤 Candidate Information")
 
-            st.write(
-                f"**Name:** {candidate.get('name') or 'Not found'}"
-            )
+            left, right = st.columns(2)
 
-            st.write(
-                f"**Email:** {candidate.get('email') or 'Not found'}"
-            )
+            with left:
+                st.write(f"**👤 Name:** {candidate.get('name') or 'Not found'}")
+                st.write(f"**📧 Email:** {candidate.get('email') or 'Not found'}")
 
-            st.write(
-                f"**Phone:** {candidate.get('phone') or 'Not found'}"
-            )
+            with right:
+                st.write(f"**📱 Phone:** {candidate.get('phone') or 'Not found'}")
 
             st.divider()
 
@@ -128,8 +143,12 @@ def render_candidate_cards(results):
 
                 if matched_skills:
 
-                    for skill in matched_skills:
-                        st.success(skill)
+                    st.markdown(
+                        " ".join(
+                            f"`{skill}`"
+                            for skill in matched_skills
+                        )
+                    )
 
                 else:
 
@@ -146,8 +165,12 @@ def render_candidate_cards(results):
 
                 if missing_skills:
 
-                    for skill in missing_skills:
-                        st.error(skill)
+                    st.markdown(
+                        " ".join(
+                            f"`{skill}`"
+                            for skill in missing_skills
+                        )
+                    )
 
                 else:
 
@@ -167,8 +190,7 @@ def render_candidate_cards(results):
             if explanation:
 
                 for item in explanation:
-                    st.write(f"• {item}")
-
+                    st.markdown(f"- {item}")
             else:
 
                 st.info("No explanation available.")

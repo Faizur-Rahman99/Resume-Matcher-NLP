@@ -5,24 +5,22 @@ from components.resume_upload import render_resume_upload
 
 
 def render_upload_section():
-
-    left, right = st.columns(2)
+    """
+    Render the upload section.
+    """
+    left, right = st.columns(2, gap="large")
 
     with left:
-
         job_file = render_job_upload()
 
         if job_file:
-            st.success(f"Selected: {job_file.name}")
+            st.success(f"✅ {job_file.name}")
 
     with right:
-
         resume_files = render_resume_upload()
 
         if resume_files:
-            st.success(
-                f"{len(resume_files)} resume(s) selected."
-            )
+            st.success(f"✅ {len(resume_files)} resume(s) selected")
 
     st.divider()
 
