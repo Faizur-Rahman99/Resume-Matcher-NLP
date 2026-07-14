@@ -1,36 +1,21 @@
-# Virtual Environment
-.venv/
-
-# Python
 __pycache__/
-*.py[cod]
+*.pyc
 *.pyo
+*.pyd
 
-# Testing
 .pytest_cache/
 .coverage
 htmlcov/
 
-# IDEs
-.idea/
-.vscode/
+.venv/
+venv/
 
-# Logs
+resume_matcher_nlp.egg-info/
+
+uploads/
 logs/
-src/logger/logs/
-*.log
 
-# Environment
 .env
 
-# Uploaded Files
-uploads/
-
-# Build
-build/
-dist/
-*.egg-info/
-
-# OS
-.DS_Store
-Thumbs.db
+.idea/
+.vscode/

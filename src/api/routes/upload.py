@@ -75,11 +75,8 @@ async def upload_resume(
         )
 
 
+
     except Exception as exc:
-
-        import traceback
-
-        traceback.print_exc()
 
         raise HTTPException(
 
@@ -116,11 +113,8 @@ async def upload_job(
         )
 
 
+
     except Exception as exc:
-
-        import traceback
-
-        traceback.print_exc()
 
         raise HTTPException(
 
