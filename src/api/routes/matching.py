@@ -15,7 +15,16 @@ router = APIRouter(
     tags=["Matching"]
 )
 
-engine = SimilarityEngine()
+engine = None
+
+
+def get_engine():
+    global engine
+
+    if engine is None:
+        engine = SimilarityEngine()
+
+    return engine
 
 
 def build_resume(resume_data) -> Resume:
@@ -51,7 +60,7 @@ def match(
             request.job
         )
 
-        result = engine.match(
+        result = get_engine().match(
             resume,
             job,
         )
@@ -99,7 +108,7 @@ def batch_match(
                 resume_data
             )
 
-            match = engine.match(
+            match = get_engine().match(
                 resume,
                 job,
             )
