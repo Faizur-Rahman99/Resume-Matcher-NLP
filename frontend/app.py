@@ -6,6 +6,7 @@ from components.header import render_header
 from components.upload_section import render_upload_section
 from services.analyzer import analyze_candidates
 from components.candidate_comparison import render_candidate_comparison
+from utils.demo import demo_mode
 
 st.set_page_config(
     page_title="AI Resume Matcher",
@@ -16,6 +17,42 @@ st.set_page_config(
 client = APIClient()
 
 render_header()
+
+if demo_mode():
+
+    with st.container(border=True):
+
+        st.markdown("## 🚀 Live Demo")
+
+        st.caption(
+            "This deployment is optimized for free cloud hosting."
+        )
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+
+            st.success(
+                """
+✅ Resume Parsing
+
+✅ Skill Extraction
+
+✅ TF-IDF Similarity
+
+✅ Rule-based Ranking
+"""
+            )
+
+        with col2:
+
+            st.warning(
+                """
+Semantic Matching is disabled in this demo because free cloud services do not provide enough RAM to load transformer models.
+
+The full implementation is available in the GitHub repository.
+"""
+            )
 
 job_file, resume_files = render_upload_section()
 

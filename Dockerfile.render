@@ -21,6 +21,7 @@ COPY . .
 RUN chmod +x start-render.sh
 
 ENV API_URL=http://127.0.0.1:8000
+ENV USE_SEMANTIC=false
 
 EXPOSE 8501
 

@@ -1,5 +1,7 @@
 import streamlit as st
 
+from utils.demo import display_score
+
 
 def render_candidate_comparison(results):
 
@@ -64,8 +66,16 @@ def render_candidate_comparison(results):
         c1, c2, c3 = st.columns([2, 3, 3])
 
         c1.write(title)
-        c2.write(f"{candidate1[key]:.0%}")
-        c3.write(f"{candidate2[key]:.0%}")
+
+        if key == "overall_score":
+            score1 = display_score(candidate1[key])
+            score2 = display_score(candidate2[key])
+        else:
+            score1 = candidate1[key]
+            score2 = candidate2[key]
+
+        c2.write(f"{score1:.0%}")
+        c3.write(f"{score2:.0%}")
 
     st.subheader("Matched Skills")
 

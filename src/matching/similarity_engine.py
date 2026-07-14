@@ -4,7 +4,6 @@ from src.entity.job_description import JobDescription
 from src.matching.experience_matcher import ExperienceMatcher
 from src.matching.skill_matcher import SkillMatcher
 from src.ml.tfidf_similarity import TFIDFSimilarity
-from src.ml.semantic_similarity import SemanticSimilarity
 from src.matching.explanation_engine import ExplanationEngine
 
 from src.config.scoring import (
@@ -15,13 +14,23 @@ from src.config.scoring import (
     TFIDF_WEIGHT,
 )
 
+import os
+
 class SimilarityEngine:
 
     def __init__(self):
         self.skill_matcher = SkillMatcher()
         self.experience_matcher = ExperienceMatcher()
         self.tfidf = TFIDFSimilarity()
-        self.semantic = SemanticSimilarity()
+
+        self.use_semantic = (
+                os.getenv("USE_SEMANTIC", "true").lower() == "true"
+        )
+
+        if self.use_semantic:
+            from src.ml.semantic_similarity import SemanticSimilarity
+            self.semantic = SemanticSimilarity()
+
         self.explanation_engine = ExplanationEngine()
 
     def match(
@@ -54,17 +63,37 @@ class SimilarityEngine:
             job_text
         )
 
-        semantic_score = self.semantic.calculate(
-            resume_text,
-            job_text
-        )
+        if self.use_semantic:
+            semantic_score = self.semantic.calculate(
+                resume_text,
+                job_text
+            )
+        else:
+            semantic_score = 0.0
 
-        overall_score = round(
-            rule_based_score * RULE_BASED_WEIGHT
-            + tfidf_score * TFIDF_WEIGHT
-            + semantic_score * SEMANTIC_WEIGHT,
-            3
-        )
+        if self.use_semantic:
+
+            overall_score = round(
+                rule_based_score * RULE_BASED_WEIGHT
+                + tfidf_score * TFIDF_WEIGHT
+                + semantic_score * SEMANTIC_WEIGHT,
+                3
+            )
+
+        else:
+
+            total_weight = (
+                    RULE_BASED_WEIGHT +
+                    TFIDF_WEIGHT
+            )
+
+            overall_score = round(
+                (
+                        rule_based_score * RULE_BASED_WEIGHT
+                        + tfidf_score * TFIDF_WEIGHT
+                ) / total_weight,
+                3
+            )
 
         matched_skills = sorted(
             set(resume.skills) & set(job.skills)
