@@ -25,6 +25,10 @@ done
 
 echo "FastAPI is ready."
 
+PORT=${PORT:-8501}
+
+echo "Starting Streamlit on port ${PORT}..."
+
 exec streamlit run frontend/app.py \
     --server.address=0.0.0.0 \
-    --server.port=8501
+    --server.port=${PORT}
