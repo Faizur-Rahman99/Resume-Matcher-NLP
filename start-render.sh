@@ -31,4 +31,5 @@ echo "Starting Streamlit on port ${PORT}..."
 
 exec streamlit run frontend/app.py \
     --server.address=0.0.0.0 \
-    --server.port=${PORT}
+    --server.port=${PORT} \
+    --server.fileWatcherType=none
