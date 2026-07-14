@@ -6,7 +6,6 @@ from fastapi import (
     HTTPException,
     UploadFile,
 )
-
 from src.api.schemas import (
     JobData,
     ResumeData,
@@ -16,7 +15,16 @@ from src.io.document_processor import DocumentProcessor
 
 router = APIRouter(tags=["Upload"])
 
-processor = DocumentProcessor()
+processor = None
+
+
+def get_processor():
+    global processor
+
+    if processor is None:
+        processor = DocumentProcessor()
+
+    return processor
 
 
 async def save_upload(file: UploadFile) -> Path:
@@ -51,7 +59,7 @@ async def upload_resume(
 
         destination = await save_upload(file)
 
-        resume = processor.process(
+        resume = get_processor().process(
             str(destination)
         )
 
@@ -98,7 +106,7 @@ async def upload_job(
 
         destination = await save_upload(file)
 
-        job = processor.process(
+        job = get_processor().process(
             str(destination)
         )
 
