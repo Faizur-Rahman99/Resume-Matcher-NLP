@@ -1,5 +1,10 @@
 import streamlit as st
 
+from utils.demo import (
+    display_score,
+    match_level,
+)
+
 
 def render_candidate_cards(results):
 
@@ -17,20 +22,18 @@ def render_candidate_cards(results):
         else:
             rank = f"#{index + 1}"
 
-        score = candidate.get("overall_score", 0)
+        score = display_score(
+            candidate.get(
+                "overall_score",
+                0,
+            )
+        )
 
-        if score >= 0.85:
-            level = "🟢 Excellent Match"
-        elif score >= 0.70:
-            level = "🟡 Good Match"
-        elif score >= 0.50:
-            level = "🟠 Fair Match"
-        else:
-            level = "🔴 Weak Match"
+        level = match_level(score)
 
         with st.expander(
                 f"{rank} {candidate.get('filename', 'Unknown')} • "
-                f"{candidate.get('overall_score', 0):.0%} Match • {level}"
+                f"{score:.0%} Match • {level}"
         ):
 
             # ---------- Candidate Information ----------
@@ -96,15 +99,10 @@ def render_candidate_cards(results):
 
                 st.metric(
                     "Overall Match",
-                    f"{candidate.get('overall_score', 0):.0%}",
+                    f"{score:.0%}",
                 )
 
-                st.progress(
-                    candidate.get(
-                        "overall_score",
-                        0.0,
-                    )
-                )
+                st.progress(score)
 
                 st.metric(
                     "Skills Match",

@@ -1,436 +1,294 @@
-<div align="center">
+# 🤖 AI Resume Matcher
 
-# 🤖 Resume Matcher NLP
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green?logo=fastapi)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.49-red?logo=streamlit)
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange?logo=scikitlearn)
+![spaCy](https://img.shields.io/badge/spaCy-NLP-09A3D5)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Status](https://img.shields.io/badge/Status-Live-success)
 
-### AI-Powered Resume Ranking System using NLP, Sentence Transformers, FastAPI, Streamlit & Docker
+An AI-powered Applicant Tracking System (ATS) that automatically parses resumes, extracts candidate information, and ranks applicants against a job description using Natural Language Processing (NLP).
 
+> Designed for recruiters and hiring teams to quickly identify the strongest candidates.
 <p align="center">
-
-<img src="https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python" />
-<img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi" />
-<img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit" />
-<img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
-<img src="https://img.shields.io/badge/SentenceTransformers-FFB000?style=for-the-badge" />
-<img src="https://img.shields.io/badge/spaCy-09A3D5?style=for-the-badge" />
-<img src="https://img.shields.io/badge/NLTK-154F7D?style=for-the-badge" />
-<img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white" />
-<img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas" />
-<img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch" />
-<img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
-
+  <img src="docs/images/home.png" alt="AI Resume Matcher Home" width="100%">
 </p>
 
 ---
+# 🎯 Project Goals
 
-### Intelligent Resume Screening using Semantic Similarity & Natural Language Processing
+This project was built to demonstrate the design and deployment of a modern AI-powered Applicant Tracking System using Natural Language Processing.
 
-Upload a job description and multiple resumes to automatically rank candidates based on semantic similarity, skills, experience, education, and NLP-powered analysis.
+The focus was on creating a production-style application featuring:
 
-Designed as a production-style AI application with Dockerized deployment, FastAPI backend, and Streamlit frontend.
-
-</div>
-
-<p align="center">
-
-<img src="https://img.shields.io/github/stars/Faizur-Rahman99/Resume-Matcher-NLP?style=social" />
-<img src="https://img.shields.io/github/forks/Faizur-Rahman99/Resume-Matcher-NLP?style=social" />
-<img src="https://img.shields.io/github/watchers/Faizur-Rahman99/Resume-Matcher-NLP?style=social" />
-
-</p>
-
-<p align="center">
-
-<img src="https://img.shields.io/github/last-commit/Faizur-Rahman99/Resume-Matcher-NLP" />
-<img src="https://img.shields.io/github/repo-size/Faizur-Rahman99/Resume-Matcher-NLP" />
-<img src="https://img.shields.io/github/languages/top/Faizur-Rahman99/Resume-Matcher-NLP" />
-
-</p>
-
-# 🚀 Live Demo
-
-> Coming Soon
-
-| Component | Status |
-|-----------|--------|
-| FastAPI Backend | ✅ |
-| Streamlit Frontend | ✅ |
-| Docker Support | ✅ |
-| Batch Resume Ranking | ✅ |
-| REST API | ✅ |
-
-# 📸 Preview
-
-## Dashboard
-
-![Dashboard](screenshots/dashboard.png)
+- Modular software architecture
+- RESTful API design
+- Interactive web interface
+- Docker-based deployment
+- Explainable candidate ranking
 
 ---
 
-## Candidate Ranking
+## 🌐 Live Demo
 
-![Ranking](screenshots/ranking.png)
+**Live Demo:** https://resume-matcher-nlp.onrender.com
 
----
-
-## Upload Interface
-
-![Upload](screenshots/upload.png)
-
----
-
-## Swagger API
-
-![Swagger](screenshots/swagger.png)
+> **Note**
+>
+> The live demo uses Rule-Based Matching and TF-IDF Similarity to fit within the memory limits of free cloud hosting.
+>
+> The full version on the `main` branch additionally includes Semantic Similarity using Sentence Transformers.
 
 ---
-
-## Docker Containers
-
-![Docker](screenshots/docker.png)
-
-# 📑 Table of Contents
-
-- Overview
-- Features
-- Tech Stack
-- Project Architecture
-- AI Pipeline
-- Folder Structure
-- Installation
-- Docker Deployment
-- REST API
-- Usage
-- Screenshots
-- Testing
-- Future Improvements
-- License
-- Author
-
-# 📖 Project Overview
-
-Recruiters often receive hundreds of resumes for a single job posting, making manual screening slow, inconsistent, and time-consuming.
-
-**Resume Matcher NLP** is an AI-powered application that automatically analyzes job descriptions and ranks candidate resumes using modern Natural Language Processing techniques.
-
-Instead of relying solely on keyword matching, the application combines semantic similarity, skill extraction, education analysis, and experience evaluation to produce more meaningful candidate rankings.
-
-The project follows a production-style architecture with a **FastAPI backend**, **Streamlit frontend**, and **Dockerized deployment**, making it easy to run locally or deploy to cloud environments.
-
----
-
-# 🌟 Why This Project?
-
-Unlike traditional Applicant Tracking Systems that rely primarily on keyword matching, Resume Matcher NLP combines semantic understanding with structured candidate evaluation.
-
-Key advantages include:
-
-- Semantic similarity instead of exact keyword matching
-- Automatic skill extraction
-- Education verification
-- Experience scoring
-- Recruiter-friendly UI
-- REST API support
-- Docker deployment
-- Modular architecture for scalability
-
-## 🎯 Objectives
-
-- Automate resume screening
-- Improve recruiter productivity
-- Reduce manual bias
-- Perform semantic matching instead of keyword matching
-- Provide explainable candidate rankings
-- Demonstrate production-ready AI engineering practices
-
 
 # ✨ Features
 
-## 🤖 AI Resume Ranking
-
-- Semantic similarity using Sentence Transformers
-- NLP-powered resume analysis
-- Skill extraction
-- Experience evaluation
-- Education matching
-- Weighted scoring algorithm
-
----
-
-## 📄 Document Processing
-
-Supports multiple file formats including
-
-- PDF
-- DOCX
-- TXT
+- 📄 Resume Parsing
+- 🧠 Job Description Parsing
+- 🎯 Automatic Candidate Ranking
+- ✅ Skill Matching
+- 💼 Experience Matching
+- 📊 Overall Match Score
+- 📈 Candidate Comparison Dashboard
+- 👤 Candidate Information Extraction
+- 🎓 Education Extraction
+- 📂 Project Extraction
+- 💡 Match Explanation
+- ⚡ FastAPI REST API
+- 🎨 Interactive Streamlit Dashboard
+- 🐳 Docker Support
 
 ---
 
-## 📊 Candidate Comparison
+# ⭐ Key Highlights
 
-- Ranked candidate list
-- Match percentage
-- Skill comparison
-- Missing skills detection
-- Resume summaries
-
----
-
-## ⚡ REST API
-
-Built with FastAPI
-
-Includes endpoints for
-
-- Resume upload
-- Job upload
-- Resume matching
-- Batch candidate ranking
-- Health checks
+- AI-powered Applicant Tracking System (ATS)
+- Supports PDF and DOCX resumes
+- Automatic candidate ranking
+- Multi-factor NLP matching
+- Interactive recruiter dashboard
+- REST API built with FastAPI
+- Dockerized for easy deployment
+- Live cloud deployment on Render
 
 ---
 
-## 🖥 Interactive Frontend
+# 📸 Screenshots
 
-Built using Streamlit
+## Upload Documents
 
-- Upload resumes
-- Upload job descriptions
-- Compare candidates
-- Interactive dashboard
-- Clean recruiter-friendly interface
+<p align="center">
+  <img src="docs/images/upload.png" width="100%">
+</p>
 
 ---
 
-## 🐳 Docker Support
+## Candidate Rankings
 
-- Dockerized backend
-- Dockerized frontend
-- Docker Compose deployment
-- Production-ready containerization
+<p align="center">
+  <img src="docs/images/rankings.png" width="100%">
+</p>
 
 ---
 
-## 🧪 Testing
+## Candidate Details
 
-- Pytest
-- API testing
-- Health endpoint validation
-- Modular architecture
+<p align="center">
+  <img src="docs/images/candidate-details.png" width="100%">
+</p>
 
-# 🛠 Tech Stack
+---
 
-| Category | Technologies |
-|-----------|--------------|
-| Programming Language | Python 3.11 |
-| Backend | FastAPI |
-| Frontend | Streamlit |
-| NLP | spaCy, NLTK |
-| Embeddings | Sentence Transformers |
-| Machine Learning | Scikit-learn |
-| Deep Learning | PyTorch |
-| Data Processing | Pandas, NumPy |
-| API Server | Uvicorn |
-| Containerization | Docker |
-| Testing | Pytest |
-| Version Control | Git & GitHub |
+## Candidate Comparison
+
+<p align="center">
+  <img src="docs/images/comparison.png" width="100%">
+</p>
+
+---
+
+## Full AI Version
+
+The complete implementation available on the `main` branch includes transformer-based semantic similarity.
+
+<p align="center">
+  <img src="docs/images/semantic-version.png" width="100%">
+</p>
+---
 
 # 🏗️ System Architecture
 
 ```mermaid
-flowchart LR
-
-A[👤 Recruiter]
-
-A --> B[🌐 Streamlit Frontend]
-
-B --> C[⚡ FastAPI Backend]
-
-C --> D[📄 Resume Upload]
-
-C --> E[📋 Job Upload]
-
-D --> F[Document Processor]
-
-E --> F
-
-F --> G[Resume Parser]
-
-F --> H[Job Parser]
-
-G --> I[Skill Extraction]
-
-H --> I
-
-I --> J[Sentence Transformer]
-
-J --> K[Similarity Engine]
-
-K --> L[Ranking Engine]
-
-L --> M[(Candidate Rankings)]
-
-M --> B
-```
-
-# 🧠 AI/NLP Pipeline
-
-```mermaid
 flowchart TD
 
-A[Resume]
+    A[💻 Streamlit Frontend]
+    B[⚙️ FastAPI Backend]
+    C[📄 Resume Parser]
+    D[📝 Information Extraction]
+    E[🧠 Matching Engine]
+    F[🏆 Candidate Ranking]
+    G[📊 Dashboard]
 
-B[Job Description]
+    A -->|HTTP API| B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
 
-A --> C[Text Extraction]
-
-B --> D[Text Extraction]
-
-C --> E[Cleaning]
-
-D --> E
-
-E --> F[Tokenization]
-
-F --> G[Skill Extraction]
-
-G --> H[Sentence Embeddings]
-
-H --> I[Semantic Similarity]
-
-I --> J[Weighted Scoring]
-
-J --> K[Candidate Ranking]
+    E --> E1[Rule-Based]
+    E --> E2[TF-IDF]
+    E --> E3["Semantic Similarity (Full Version)"]
 ```
 
-# 🔄 Request Flow
+---
+
+# 🧠 Matching Engine
 
 ```mermaid
-sequenceDiagram
+flowchart LR
 
-Recruiter->>Streamlit: Upload Resume
+    JD[📋 Job Description]
+    R[📄 Resume]
 
-Recruiter->>Streamlit: Upload Job Description
+    JD --> RB
+    R --> RB
 
-Streamlit->>FastAPI: POST /upload/resume
+    JD --> TF
+    R --> TF
 
-FastAPI-->>Streamlit: Parsed Resume
+    JD --> SM
+    R --> SM
 
-Streamlit->>FastAPI: POST /upload/job
+    RB[Rule-Based Matching]
+    TF[TF-IDF Similarity]
+    SM["Semantic Similarity (Full Version)"]
 
-FastAPI-->>Streamlit: Parsed Job
+    RB --> SCORE
+    TF --> SCORE
+    SM --> SCORE
 
-Streamlit->>FastAPI: POST /match/batch
+    SCORE[Weighted Overall Score]
 
-FastAPI-->>Streamlit: Ranked Candidates
-
-Streamlit-->>Recruiter: Display Results
+    SCORE --> EXP[Explanation Engine]
+    EXP --> DASH[Dashboard]
 ```
+> **Note**
+>
+> The live demo uses **Rule-Based Matching** and **TF-IDF Similarity**.
+>
+> The complete implementation on the `main` branch additionally includes **Sentence Transformer–based Semantic Similarity**.
+---
+
+# ⚙️ Tech Stack
+
+## Programming Language
+
+- Python 3.11
+
+## Backend
+
+- FastAPI
+- Uvicorn
+
+## Frontend
+
+- Streamlit
+
+## Machine Learning & NLP
+
+- scikit-learn
+- TF-IDF Vectorizer
+- Sentence Transformers *(Full Version)*
+- spaCy
+- NLTK
+
+## Document Processing
+
+- PyMuPDF
+- pdfplumber
+- python-docx
+
+## Data Processing
+
+- NumPy
+- Pandas
+
+## Deployment & DevOps
+
+- Docker
+- Render
+
+## Development Tools
+
+- Git
+- GitHub
+- PyCharm
+
+---
+
+# 📊 Matching Algorithm
+
+The overall candidate score is calculated using multiple NLP techniques.
+
+### Rule-Based Matching
+
+Compares:
+
+- Skills
+- Experience
+
+### TF-IDF Similarity
+
+Measures textual similarity between:
+
+- Resume
+- Job Description
+
+### Semantic Similarity *(Full Version)*
+
+Uses transformer embeddings to understand contextual similarity between resumes and job descriptions.
+
+---
 
 # 📂 Project Structure
 
 ```text
-Resume-Matcher-NLP/
-
+Resume-Matcher-NLP
 │
 ├── frontend/
-│   ├── components/
-│   ├── config/
-│   ├── services/
-│   └── app.py
-│
 ├── src/
 │   ├── api/
-│   ├── components/
-│   ├── configuration/
 │   ├── entity/
-│   ├── io/
-│   ├── models/
-│   ├── nlp/
-│   ├── pipelines/
-│   ├── services/
-│   ├── utils/
+│   ├── matching/
+│   ├── parser/
+│   ├── similarity/
 │   └── ...
 │
-├── data/
-│   └── raw/
-│
 ├── tests/
-│
-├── docs/
-│
-├── screenshots/
-│
-├── assets/
-│
-├── Dockerfile.backend
-├── Dockerfile.frontend
-├── docker-compose.yml
+├── Dockerfile
+├── Dockerfile.render
 ├── requirements.txt
-├── README.md
-└── LICENSE
-```
-
-# 🧩 Core Components
-
-| Component | Responsibility |
-|------------|----------------|
-| Streamlit | User Interface |
-| FastAPI | REST API |
-| Document Processor | Reads uploaded files |
-| Resume Parser | Extracts structured information |
-| Job Parser | Parses job descriptions |
-| Skill Extractor | Detects technical skills |
-| Sentence Transformer | Creates semantic embeddings |
-| Matching Engine | Computes similarity |
-| Ranking Engine | Generates candidate rankings |
-| Docker | Containerized deployment |
-
-# 🏛️ Design Principles
-
-The application follows modern software engineering principles.
-
-- Modular Architecture
-- Separation of Concerns
-- Object-Oriented Design
-- Dependency Injection
-- Service Layer Pattern
-- Repository Pattern
-- API-first Development
-- Dockerized Deployment
-- Production-ready Project Structure
-
-# ⚙️ Installation
-
-## Clone the Repository
-
-```bash
-git clone https://github.com/Faizur-Rahman99/Resume-Matcher-NLP.git
-
-cd Resume-Matcher-NLP
+└── README.md
 ```
 
 ---
 
-## Create a Virtual Environment
+# 🛠️ Installation
 
-### Windows
+## Prerequisites
 
-```bash
-python -m venv .venv
+- Python 3.11+
+- Git
+- Docker *(optional)*
 
-.venv\Scripts\activate
-```
-
-### Linux / macOS
+## Clone Repository
 
 ```bash
-python3 -m venv .venv
-
-source .venv/bin/activate
+git clone ...
 ```
-
----
 
 ## Install Dependencies
 
@@ -438,268 +296,97 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
----
-
-## Download NLP Resources
-
-The application automatically downloads required NLTK datasets during the first run.
-
-Required datasets include:
-
-- punkt
-- punkt_tab
-- stopwords
-
----
-
-## Run the Backend
-
-```bash
-uvicorn src.api.app:app --reload
-```
-
-Backend URL
-
-```
-http://localhost:8000
-```
-
-Swagger Documentation
-
-```
-http://localhost:8000/docs
-```
-
----
-
-## Run the Frontend
+## Run Application
 
 ```bash
 streamlit run frontend/app.py
 ```
 
-Frontend URL
+---
 
-```
-http://localhost:8501
-```
-
-# 🐳 Docker Deployment
-
-The entire application can be started using Docker Compose.
-
-## Build Containers
+# 🚀 Running with Docker
 
 ```bash
-docker compose build
+docker build -t resume-matcher .
+
+docker run -p 8501:8501 resume-matcher
 ```
 
 ---
 
-## Start Containers
+# 🔌 API Overview
 
-```bash
-docker compose up
-```
-
----
-
-## Start in Background
-
-```bash
-docker compose up -d
-```
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | `/match` | Analyze a single resume |
+| POST | `/match/batch` | Analyze multiple resumes |
+| GET | `/health` | Health check |
 
 ---
 
-## Stop Containers
+# 📈 Future Improvements
 
-```bash
-docker compose down
-```
+## AI Enhancements
 
----
+- LLM-powered resume analysis
+- RAG-based candidate search
+- Skill ontology matching
 
-## View Logs
+## Platform Features
 
-```bash
-docker compose logs
+- User authentication
+- Recruiter dashboard
+- PostgreSQL integration
+- Export reports
 
-docker compose logs backend
+## Deployment
 
-docker compose logs frontend
-```
-
----
-
-## Rebuild
-
-```bash
-docker compose up --build
-```
+- AWS deployment
+- Azure deployment
+- CI/CD pipeline
+- Kubernetes support
 
 ---
 
-## Running Containers
+# 📚 Learning Outcomes
 
-| Container | Port |
-|------------|------|
-| Backend | 8000 |
-| Frontend | 8501 |
+This project demonstrates practical experience with:
 
-
-# 📡 REST API
-
-The backend exposes a REST API built using FastAPI.
-
-## Health Check
-
-```
-GET /health
-```
+- NLP pipelines
+- Machine learning similarity algorithms
+- REST API development
+- Docker containerization
+- Cloud deployment
+- Modular software architecture
+- Interactive data visualization
 
 ---
 
-## Upload Resume
+# 📄 License
 
-```
-POST /upload/resume
-```
+This project is licensed under the **MIT License**, which allows you to use, modify, and distribute the software with proper attribution.
 
-Accepts
-
-- PDF
-- DOCX
-- TXT
+See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## Upload Job Description
+# 👨‍💻 Author
 
-```
-POST /upload/job
-```
+## Faizur Rahman
 
-Accepts
+Computer Science & Engineering graduate with a strong interest in **Artificial Intelligence**, **Machine Learning**, and **Software Engineering**.
 
-- PDF
-- DOCX
-- TXT
+### Connect with me
 
----
-
-## Match Candidate
-
-```
-POST /match
-```
-
-Returns
-
-- Match Score
-- Missing Skills
-- Experience Match
-- Education Match
+- **GitHub:** https://github.com/Faizur-Rahman99
+- **LinkedIn:** www.linkedin.com/in/faizur-rahman99
 
 ---
 
-## Batch Candidate Ranking
+## ⭐ Support
 
-```
-POST /match/batch
-```
+If you found this project helpful or interesting, please consider giving it a ⭐ on GitHub.
 
-Returns
+Your support helps showcase the project and motivates future improvements.
 
-- Ranked Candidates
-- Similarity Scores
-- Detailed Comparison
-
-# 📄 Example Response
-
-```json
-{
-  "candidate": "resume_ai.pdf",
-  "score": 94.6,
-  "matched_skills": [
-    "Python",
-    "Machine Learning",
-    "Docker",
-    "FastAPI",
-    "PyTorch"
-  ],
-  "missing_skills": [
-    "Kubernetes"
-  ]
-}
-```
-
-# 🚀 Example Workflow
-
-1. Upload a Job Description.
-
-2. Upload one or more candidate resumes.
-
-3. Resume Matcher extracts
-
-- Skills
-- Education
-- Experience
-- Resume Text
-
-4. Sentence Transformers generate semantic embeddings.
-
-5. Similarity scores are calculated.
-
-6. Additional weighted scoring is applied.
-
-7. Candidates are ranked from best to worst.
-
-8. Results are displayed in the Streamlit dashboard.
-
-# 🧪 Testing
-
-Run all tests
-
-```bash
-pytest
-```
-
-Run with coverage
-
-```bash
-pytest --cov=src
-```
-
-Current testing includes
-
-- API endpoints
-- Resume parsing
-- Job parsing
-- Skill extraction
-- Similarity engine
-- Candidate ranking
-
-# 🔐 Environment Variables
-
-Example
-
-```env
-API_URL=http://backend:8000
-```
-
-Additional variables can be configured depending on deployment requirements.
-
-
-# 📸 Application Screenshots
-
-| Dashboard | Candidate Ranking |
-|------------|-------------------|
-| ![](screenshots/dashboard.png) | ![](screenshots/ranking.png) |
-
-| Resume Upload | Swagger API |
-|---------------|-------------|
-| ![](screenshots/upload.png) | ![](screenshots/swagger.png) |
-
-
-
+Thank you for visiting!

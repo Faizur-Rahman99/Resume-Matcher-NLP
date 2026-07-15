@@ -1,5 +1,9 @@
 import streamlit as st
 
+from utils.demo import (
+    display_score,
+    match_level,
+)
 
 def render_candidate_table(results):
     """
@@ -17,14 +21,21 @@ def render_candidate_table(results):
     total_candidates = len(results)
 
     average_score = (
-        sum(
-            candidate["overall_score"]
-            for candidate in results
-        )
-        / total_candidates
+            sum(
+                candidate["overall_score"]
+                for candidate in results
+            )
+            / total_candidates
+    )
+
+    average_score = display_score(
+        average_score
     )
 
     best_candidate = results[0]
+    best_score = display_score(
+        best_candidate["overall_score"]
+    )
 
     col1, col2, col3, col4 = st.columns(4)
 
@@ -40,7 +51,7 @@ def render_candidate_table(results):
 
     col3.metric(
         "🥇 Best Match",
-        f"{best_candidate['overall_score']:.1%}",
+        f"{best_score:.1%}",
     )
 
     col4.metric(
@@ -64,16 +75,11 @@ def render_candidate_table(results):
             else f"#{index + 1}"
         )
 
-        score = candidate["overall_score"]
+        score = display_score(
+            candidate["overall_score"]
+        )
 
-        if score >= 0.85:
-            color = "🟢 Excellent"
-        elif score >= 0.70:
-            color = "🟡 Good"
-        elif score >= 0.50:
-            color = "🟠 Fair"
-        else:
-            color = "🔴 Weak"
+        color = match_level(score)
 
         with st.container(border=True):
 
